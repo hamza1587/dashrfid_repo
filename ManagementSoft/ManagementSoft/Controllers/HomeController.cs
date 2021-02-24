@@ -230,7 +230,7 @@ namespace ECommerceCore.Controllers
                     return View(obj);
                 }
                 obj.created_at = DateTime.Now;
-                obj.user_pass = SecurePasswordHasher.Hash(obj.user_pass);
+                //obj.user_pass = SecurePasswordHasher.Hash(obj.user_pass);
                 if (obj.id == 0)
                 {
                    await db.Users.Add(obj);
