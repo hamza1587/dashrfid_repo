@@ -41,7 +41,7 @@ namespace ManagementSoft.Controllers
             {
                 obj.is_active = true;
                 obj.created_at = DateTime.Now;
-                obj.user_pass = SecurePasswordHasher.Hash(obj.user_pass);
+                obj.user_pass = obj.user_pass; //SecurePasswordHasher.Hash(obj.user_pass);
                 db.Users.Add(obj);
                 db.SaveChanges();
             }
@@ -67,25 +67,23 @@ namespace ManagementSoft.Controllers
                 Remove("LoginUsername");
                 Remove("LoginUserRole");
 
-                var user = db.Users.Where(x => x.user_name == login.user_name).FirstOrDefault();
+                var user = db.Users.Where(x => x.user_name == login.user_name && x.user_pass == login.user_pass).FirstOrDefault();
                 if (user != null)
                 {
-                    if (SecurePasswordHasher.Verify(login.user_pass, user.user_pass))
-                    {
+                    //if (SecurePasswordHasher.Verify(login.user_pass, user.user_pass))
+                    //{
 
                         SetCookie("LoginUserId", user.id.ToString(), 1);
                         SetCookie("LoginUsername", user.user_name.ToString(), 1);
                         SetCookie("LoginUserRole", user.user_role.ToString(), 1);
                         
                         return RedirectToAction("Index", "Home");
-                    }
-                    else
-                    {
-                        ViewData["Error"] = "Incorrect User/Password";
-                       
-                    }
+                   // }                 
                 }
-
+                else
+                {
+                    ViewData["Error"] = "Incorrect User/Password";
+                }
             }
             catch (Exception ex)
             {
