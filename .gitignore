@@ -5,6 +5,8 @@
 
 # Node artifact files
 node_modules/
+obj/
+Debug/
 
 # Compiled Java class files
 *.class
