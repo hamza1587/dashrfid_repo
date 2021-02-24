@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagementSoft", "ManagementSoft\ManagementSoft.csproj", "{871E165F-DF74-4D97-95F9-8DAEF6ABA965}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLib", "DataLib\DataLib.csproj", "{1FBD90CE-9A04-4B83-9A98-1BB9BE3ABFD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{871E165F-DF74-4D97-95F9-8DAEF6ABA965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{871E165F-DF74-4D97-95F9-8DAEF6ABA965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{871E165F-DF74-4D97-95F9-8DAEF6ABA965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{871E165F-DF74-4D97-95F9-8DAEF6ABA965}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FBD90CE-9A04-4B83-9A98-1BB9BE3ABFD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FBD90CE-9A04-4B83-9A98-1BB9BE3ABFD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FBD90CE-9A04-4B83-9A98-1BB9BE3ABFD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FBD90CE-9A04-4B83-9A98-1BB9BE3ABFD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F76940E3-BFDC-435F-8F13-39CC0F0AC1CC}
+	EndGlobalSection
+EndGlobal

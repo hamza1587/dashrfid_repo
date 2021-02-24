@@ -1,0 +1,127 @@
+﻿@model IEnumerable<DataLib.Entities.TimeSpentOperations>
+@{
+    ViewData["Title"] = "Operations Report";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+<form role="form" id="quickForm" asp-action="OperationReport">
+    <div class="card-body">
+        <div class="row">
+            @*<div class="col-md-4">
+                    <button type="button" class="btn btn-success" value="Export to Excel" onclick="Export()">Export to Excel &nbsp;<i class="fas fa-file-excel"> </i></button>
+                    <a href="/Home/DownloadFile?fileName=ResourceReport.xlsx" class="btn btn-info" download="">Download&nbsp;&nbsp; <i class="fas fa-file-download"> </i></a>
+                </div>*@
+            <div class="col-md-2">
+                <label for="fromdate" class="control-label">From Date</label>
+                <input type="date" id="fromdate" required class="form-control" />
+            </div>
+            <div class="col-md-2">
+                <label for="todate" class="control-label">To Date</label>
+                <input type="date" id="todate" required class="form-control" />
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-success" style="margin-top:31px;" onclick="Searchdata()">Search &nbsp;<i class="fas fa-search"> </i></button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"></h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="tbloperation" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Body</th>
+                            <th>Seq</th>
+                            <th>Place</th>
+                            <th>Area</th>
+                            <th>Conditions</th>
+                            <th>Status</th>
+                            <th>Offline Time</th>
+                            <th>OTD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>MKDHH98421</td>
+                                    <td>123</td>
+                                    <td>@item.location_id</td>
+                                    <td><span class="badge badge-primary">@item.location_name</span></td>
+                                    <td>---------<br />---------</td>
+                                    <td><span class="badge badge-secondary"><big>WAITING</big></span></td>
+                                    <td>@item.total_minutes min</td>
+                                    <td>0 hrs 33 min</td>
+                                </tr>
+                            }
+                    </tbody>
+
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+
+    <script>
+
+        function Searchdata() {
+
+            var fromdate = $('#fromdate').val();
+            var todate = $('#todate').val();
+            $.ajax({
+                type: "POST",
+                url: '/Home/SearchtimeSpent',
+                data: {
+                    FromDate: fromdate,
+                    ToDate: todate,
+                },
+
+                success: function (data)
+                {
+                    if (data !== null)
+                    {
+
+                    }
+                    alert("Data Export Successfuly");
+                    location.reload();
+
+                },
+                error: function (x) {
+                    alert("Sorry Somthing Wrong");
+                }
+
+            })
+        }
+
+        $(function () {
+            $("#tbloperation").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#tbloperation_wrapper .col-md-6:eq(0)');
+            $('#example1').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+           //$(function () {
+           //    $('#tbloperation').DataTable({
+           //        "paging": true,
+           //        "lengthChange": false,
+           //        "searching": true,
+           //        "ordering": true,
+           //        "info": false,
+           //        "autoWidth": false,
+           //        "responsive": true,
+           //    });
+           //});
+    </script>
+}

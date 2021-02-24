@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DataLib.Entities.TimeSpentOperations>
+@{
+    ViewData["Title"] = "Operations dashboard";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+<form role="form" id="quickForm" asp-action="DashBoard">
+    <div class="card-body">
+            <table id="tbloperation" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Body</th>
+                        <th>Seq</th>
+                        <th>Place</th>
+                        <th>Area</th>
+                        <th>Conditions</th>
+                        <th>Status</th>
+                        <th>Offline Time</th>
+                        <th>OTD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>MKDHH98421</td>
+                            <td>123</td>
+                            <td>@item.location_id</td>
+                            <td><span class="badge badge-primary">@item.location_name</span></td>
+                            <td>---------<br />---------</td>
+                            <td><span class="badge badge-secondary"><big>WAITING</big></span></td>
+                            <td>@item.total_minutes min</td>
+                            <td>0 hrs 33 min</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+</form>

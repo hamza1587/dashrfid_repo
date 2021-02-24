@@ -1,0 +1,390 @@
+﻿@model List<DataLib.Entities.TimeSpentOperations>
+@{
+    ViewData["Title"] = "Layout dashboard";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+@{
+    int reserve = Model.Count();
+
+    List<DataLib.Entities.TimeSpentOperations> list = Model.ToList();
+}
+<form role="form" id="quickForm" asp-action="Index">
+
+    <div class="card-body">
+        <div class="row col-md-12">
+
+            <!-- Parking Area -->
+            @if (reserve > 0)
+            {
+                <div class="ParkingAreaOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')">
+                    <input type="hidden" value="@(reserve--);" />
+                </div>
+            }
+            else
+            {
+                <div class="ParkingArea" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            <!-- 23 Parking places -->
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+            @if (reserve > 0)
+            {
+                <div class="ParkingPlaceOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                <input type="hidden" value="@(reserve--);" />
+            }
+            else
+            {
+                <div class="ParkingPlace" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+            }
+
+            <div class="col-md-2">
+                <!-- Parking Area Horizontal -->
+                @if (reserve > 0)
+                {
+                    <div class="ParkingAreaHorizontalOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                    <input type="hidden" value="@(reserve--);" />
+                }
+                else
+                {
+                    <div class="ParkingAreaHorizontal" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+                }
+                @if (reserve > 0)
+                {
+                    <div class="ParkingPlaceHorizontalOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                    <input type="hidden" value="@(reserve--);" />
+                }
+                else
+                {
+                    <div class="ParkingPlaceHorizontal" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+                }
+                @if (reserve > 0)
+                {
+                    <div class="ParkingPlaceHorizontalOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                    <input type="hidden" value="@(reserve--);" />
+                }
+                else
+                {
+                    <div class="ParkingPlaceHorizontal" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+                }
+                @if (reserve > 0)
+                {
+                    <div class="ParkingPlaceHorizontalOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                    <input type="hidden" value="@(reserve--);" />
+                }
+                else
+                {
+                    <div class="ParkingPlaceHorizontal" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+                }
+                @if (reserve > 0)
+                {
+                    <div class="ParkingPlaceHorizontalOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                    <input type="hidden" value="@(reserve--);" />
+                }
+                else
+                {
+                    <div class="ParkingPlaceHorizontal" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+                }
+                @if (reserve > 0)
+                {
+                    <div class="ParkingPlaceHorizontalOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                    <input type="hidden" value="@(reserve--);" />
+                }
+                else
+                {
+                    <div class="ParkingPlaceHorizontal" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+                }
+                @if (reserve > 0)
+                {
+                    <div class="ParkingPlaceHorizontalOccupie" data-toggle="tooltip" title="" onclick="DataTooltip('@list[reserve-1].asset_id')"></div>
+                    <input type="hidden" value="@(reserve--);" />
+                }
+                else
+                {
+                    <div class="ParkingPlaceHorizontal" data-toggle="tooltip" title="" onclick="DataTooltip()"></div>
+                }
+            </div>
+
+        </div>
+
+        <!-- Modals -->
+        <div class="modal fade" id="AccountModel" tabindex="-1" role="dialog" aria-labelledby="AccountModel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="AccountModel">Parking Details</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="txtAssetId" class="control-label">Asset ID</label>
+                            <input type="text" id="txtAssetId" class="form-control" />
+                        </div>
+                    </div>
+                    @*<div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" onclick="Save()">Save changes</button>
+                            <button class="btn btn-danger" type="button" data-dismiss="modal">Close</button>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <table id="tbllayout" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Place</th>
+                <th>Area</th>
+                <th>Body</th>
+                <th>Offline Time</th>
+                <th>OTD</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.asset_id</td>
+                    <td><span class="badge badge-primary">@item.location_name</span></td>
+                    <td>MKDHH98421</td>
+                    <td>@item.total_minutes min</td>
+                    <td>0 hrs 33 min</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <!-- /.card -->
+</form>
+
+@section Scripts{
+    <script>
+
+        @*$(document).ready(function ()
+        {
+            var count = @Model.Count();
+            debugger;
+
+        });*@
+        function DataTooltip(AssetID) {
+
+            $('#txtAssetId').val(AssetID);
+            $('#AccountModel').modal('show');
+            //$(".ParkingAreaOccupie").attr('title', 'ID : '+AssetID+'');
+            //$(".ParkingPlaceOccupie").attr('title', 'ID : ' + AssetID + '');
+            //$(".ParkingPlace").attr('title', 'ID : ' + AssetID + '');
+            //$(".ParkingAreaHorizontalOccupie").attr('title', 'ID : ' + AssetID + '');
+            //$(".ParkingAreaHorizontal").attr('title', 'ID : ' + AssetID + '');
+            //$(".ParkingPlaceHorizontalOccupie").attr('title', 'ID : ' + AssetID + '');
+            //$(".ParkingPlaceHorizontal").attr('title', 'ID : ' + AssetID + '');
+           
+        }
+
+      $(function () {
+          $('#tbllayout').DataTable({
+              "paging": false,
+              "lengthChange": false,
+              "searching": false,
+              "ordering": true,
+              "info": false,
+              "autoWidth": false,
+              "responsive": true,
+            });
+        });
+    </script>
+}

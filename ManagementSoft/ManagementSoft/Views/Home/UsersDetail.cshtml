@@ -1,0 +1,107 @@
+﻿@model IEnumerable<DataLib.Entities.Users>
+
+@{
+    ViewData["Title"] = "UsersDetail";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+<form role="form" id="quickForm" asp-action="UsersDetail" style="width:100%">
+    <div class="card-body">
+        <div class="col-md-12">
+            <input type="button" id="btnAdd" class="btn btn-success" style="margin-top: 14px; margin-bottom:10px; float:right;" value="Add User" onclick="@("window.location.href='" + @Url.Action("AddUser", "Home") + "'");" />
+        </div>
+        <table id="example2" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.id)
+                    </th>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Password
+                    </th>
+                    <th>
+                        User Role
+                    </th>
+                    <th>
+                        IsActive
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.created_at)
+                    </th>
+                    <th class="textcentre">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.user_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.user_pass)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.user_role)
+                        </td>
+                        <td>
+                            @if (item.is_active == true)
+                            {
+                                <input type="checkbox" disabled="disabled" checked="checked" />
+                            }
+                            else
+                            {
+                                <input type="checkbox"  disabled="disabled" />
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.created_at)
+                        </td>
+                        <td class="textcentre">
+                            <a href="~/Home/AddUser?Id=@item.id" class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-edit"></i></a> |
+                            <a href="#" class="btn btn-datatable btn-icon btn-transparent-dark" onclick="Delete(@item.id)"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</form>
+
+@section Scripts{
+
+    <script>
+        function Delete(id) {
+            $.ajax({
+                type: "POST",
+                url: '/Home/DeleteUser',
+                data: { Id: id },
+
+                success: function (data) {
+                    alert("Deleted Successfully");
+                    location.reload();
+                },
+                error: function (x) {
+                    alert("Something went wrong");
+                }
+            })
+        }
+        $(function () {
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": false,
+                "ordering": true,
+                "info": false,
+                "autoWidth": true,
+                "responsive": true,
+            });
+        });
+    </script>
+}
+

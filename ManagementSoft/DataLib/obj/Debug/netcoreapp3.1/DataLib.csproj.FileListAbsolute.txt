@@ -1,0 +1,77 @@
+I:\development\Core ECommerce website\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.deps.json
+I:\development\Core ECommerce website\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.json
+I:\development\Core ECommerce website\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.dev.json
+I:\development\Core ECommerce website\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.dll
+I:\development\Core ECommerce website\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.pdb
+I:\development\Core ECommerce website\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.csproj.CoreCompileInputs.cache
+I:\development\Core ECommerce website\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfoInputs.cache
+I:\development\Core ECommerce website\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfo.cs
+I:\development\Core ECommerce website\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.dll
+I:\development\Core ECommerce website\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.pdb
+I:\development\Core ECommerce website\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.genruntimeconfig.cache
+F:\development\Core ECommerce website\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.deps.json
+F:\development\Core ECommerce website\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.json
+F:\development\Core ECommerce website\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.dev.json
+F:\development\Core ECommerce website\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.dll
+F:\development\Core ECommerce website\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.pdb
+F:\development\Core ECommerce website\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.csprojAssemblyReference.cache
+F:\development\Core ECommerce website\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfoInputs.cache
+F:\development\Core ECommerce website\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfo.cs
+F:\development\Core ECommerce website\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.csproj.CoreCompileInputs.cache
+F:\development\Core ECommerce website\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.dll
+F:\development\Core ECommerce website\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.pdb
+F:\development\Core ECommerce website\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.genruntimeconfig.cache
+F:\development\ManagementSoft\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.deps.json
+F:\development\ManagementSoft\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.json
+F:\development\ManagementSoft\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.dev.json
+F:\development\ManagementSoft\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.dll
+F:\development\ManagementSoft\ECommerceCore\DataLib\bin\Debug\netcoreapp3.1\DataLib.pdb
+F:\development\ManagementSoft\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.csprojAssemblyReference.cache
+F:\development\ManagementSoft\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfoInputs.cache
+F:\development\ManagementSoft\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfo.cs
+F:\development\ManagementSoft\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.csproj.CoreCompileInputs.cache
+F:\development\ManagementSoft\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.dll
+F:\development\ManagementSoft\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.pdb
+F:\development\ManagementSoft\ECommerceCore\DataLib\obj\Debug\netcoreapp3.1\DataLib.genruntimeconfig.cache
+F:\development\Backup\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfoInputs.cache
+F:\development\Backup\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfo.cs
+F:\development\Backup\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.dll
+F:\development\Backup\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.pdb
+F:\development\Backup\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.deps.json
+F:\development\Backup\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.json
+F:\development\Backup\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.dev.json
+F:\development\Backup\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.dll
+F:\development\Backup\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.pdb
+F:\development\Backup\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.genruntimeconfig.cache
+F:\development\Backup\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.csprojAssemblyReference.cache
+F:\development\Backup\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.csproj.CoreCompileInputs.cache
+F:\development\POS\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.deps.json
+F:\development\POS\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.json
+F:\development\POS\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.dev.json
+F:\development\POS\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.dll
+F:\development\POS\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.pdb
+F:\development\POS\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.csprojAssemblyReference.cache
+F:\development\POS\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfoInputs.cache
+F:\development\POS\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfo.cs
+F:\development\POS\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.csproj.CoreCompileInputs.cache
+F:\development\POS\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.dll
+F:\development\POS\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.pdb
+F:\development\POS\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.genruntimeconfig.cache
+F:\development\Fiverr Project\UserApprove\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.csprojAssemblyReference.cache
+F:\development\Fiverr Project\UserApprove\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfoInputs.cache
+F:\development\Fiverr Project\UserApprove\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfo.cs
+F:\development\Fiverr Project\UserApprove\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.csproj.CoreCompileInputs.cache
+F:\development\Fiverr Project\UserApprove\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.dll
+F:\development\Fiverr Project\UserApprove\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.pdb
+F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.deps.json
+F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.json
+F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.dev.json
+F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.dll
+F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.pdb
+F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.csprojAssemblyReference.cache
+F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfoInputs.cache
+F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfo.cs
+F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.csproj.CoreCompileInputs.cache
+F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.dll
+F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.pdb
+F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.genruntimeconfig.cache

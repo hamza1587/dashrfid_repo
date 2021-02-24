@@ -1,0 +1,42 @@
+﻿@model DataLib.Entities.Users
+
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+
+<form role="form" id="quickForm"  asp-action="AddUser">
+    <div class="card-body">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input asp-for="id" type="hidden" class="form-control" />
+        <div class="form-group col-md-6">
+            <label asp-for="user_name" class="control-label">Username</label>
+            <input asp-for="user_name" type="text" required class="form-control" />
+            <span asp-validation-for="user_name" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="user_pass" class="control-label">Password</label>
+            <input asp-for="user_pass" type="password" required class="form-control" />
+            <span asp-validation-for="user_pass" class="text-danger"></span>
+        </div> 
+        <div class="form-group col-md-6">
+            <label>Role</label>
+            <select id="ddlFunctions" asp-for="user_role" class="form-control" required>
+                <option>admin</option>
+                <option>operator</option>
+            </select>
+        </div>
+        <div class="form-group form-check col-md-6" style="margin-left: 9px;">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="is_active" /> @Html.DisplayNameFor(model => model.is_active)
+            </label>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <a asp-action="UsersDetail" class="btn btn-danger">Back</a>
+        </div>
+    </div>
+</form>
+   
+
