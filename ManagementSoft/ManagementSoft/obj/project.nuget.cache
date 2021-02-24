@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UqIoYDiM+RgysT7MWxWF2psC5HXhVUGXpYoN1dGfcWi4glVc8GoEUnN591HfFZAjwTiwioCH+3LNJ+q6siQ3tQ==",
+  "dgSpecHash": "D7OBopRWZlEotUsHJsWQ41vNeucYpAzMkwFVvjS3VHsLCSy43glkenuZCjC+/AG3gbB5RD5gHHvpQPps01si0g==",
   "success": true,
-  "projectFilePath": "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\ManagementSoft\\ManagementSoft.csproj",
+  "projectFilePath": "H:\\dashrfit\\ManagementSoft\\ManagementSoft\\ManagementSoft.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\umair\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",
     "C:\\Users\\umair\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.7\\microsoft.aspnet.razor.3.2.7.nupkg.sha512",

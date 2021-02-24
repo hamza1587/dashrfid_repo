@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\DataLib\\DataLib.csproj": {}
+    "H:\\dashrfit\\ManagementSoft\\DataLib\\DataLib.csproj": {}
   },
   "projects": {
-    "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\DataLib\\DataLib.csproj": {
+    "H:\\dashrfit\\ManagementSoft\\DataLib\\DataLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\DataLib\\DataLib.csproj",
+        "projectUniqueName": "H:\\dashrfit\\ManagementSoft\\DataLib\\DataLib.csproj",
         "projectName": "DataLib",
-        "projectPath": "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\DataLib\\DataLib.csproj",
+        "projectPath": "H:\\dashrfit\\ManagementSoft\\DataLib\\DataLib.csproj",
         "packagesPath": "C:\\Users\\umair\\.nuget\\packages\\",
-        "outputPath": "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\DataLib\\obj\\",
+        "outputPath": "H:\\dashrfit\\ManagementSoft\\DataLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

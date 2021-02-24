@@ -75,3 +75,15 @@ F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\obj\D
 F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.dll
 F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.pdb
 F:\development\Backup\Ready To User WebApp DarkSkin\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.genruntimeconfig.cache
+H:\dashrfit\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.deps.json
+H:\dashrfit\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.json
+H:\dashrfit\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.runtimeconfig.dev.json
+H:\dashrfit\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.dll
+H:\dashrfit\ManagementSoft\DataLib\bin\Debug\netcoreapp3.1\DataLib.pdb
+H:\dashrfit\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.csprojAssemblyReference.cache
+H:\dashrfit\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfoInputs.cache
+H:\dashrfit\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.AssemblyInfo.cs
+H:\dashrfit\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.csproj.CoreCompileInputs.cache
+H:\dashrfit\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.dll
+H:\dashrfit\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.pdb
+H:\dashrfit\ManagementSoft\DataLib\obj\Debug\netcoreapp3.1\DataLib.genruntimeconfig.cache

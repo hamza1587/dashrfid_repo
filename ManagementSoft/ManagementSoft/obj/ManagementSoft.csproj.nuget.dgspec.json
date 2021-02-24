@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\ManagementSoft\\ManagementSoft.csproj": {}
+    "H:\\dashrfit\\ManagementSoft\\ManagementSoft\\ManagementSoft.csproj": {}
   },
   "projects": {
-    "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\DataLib\\DataLib.csproj": {
+    "H:\\dashrfit\\ManagementSoft\\DataLib\\DataLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\DataLib\\DataLib.csproj",
+        "projectUniqueName": "H:\\dashrfit\\ManagementSoft\\DataLib\\DataLib.csproj",
         "projectName": "DataLib",
-        "projectPath": "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\DataLib\\DataLib.csproj",
+        "projectPath": "H:\\dashrfit\\ManagementSoft\\DataLib\\DataLib.csproj",
         "packagesPath": "C:\\Users\\umair\\.nuget\\packages\\",
-        "outputPath": "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\DataLib\\obj\\",
+        "outputPath": "H:\\dashrfit\\ManagementSoft\\DataLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -82,14 +82,14 @@
         }
       }
     },
-    "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\ManagementSoft\\ManagementSoft.csproj": {
+    "H:\\dashrfit\\ManagementSoft\\ManagementSoft\\ManagementSoft.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\ManagementSoft\\ManagementSoft.csproj",
+        "projectUniqueName": "H:\\dashrfit\\ManagementSoft\\ManagementSoft\\ManagementSoft.csproj",
         "projectName": "ManagementSoft",
-        "projectPath": "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\ManagementSoft\\ManagementSoft.csproj",
+        "projectPath": "H:\\dashrfit\\ManagementSoft\\ManagementSoft\\ManagementSoft.csproj",
         "packagesPath": "C:\\Users\\umair\\.nuget\\packages\\",
-        "outputPath": "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\ManagementSoft\\obj\\",
+        "outputPath": "H:\\dashrfit\\ManagementSoft\\ManagementSoft\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -109,8 +109,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\DataLib\\DataLib.csproj": {
-                "projectPath": "F:\\development\\Backup\\Ready To User WebApp DarkSkin\\ManagementSoft\\DataLib\\DataLib.csproj"
+              "H:\\dashrfit\\ManagementSoft\\DataLib\\DataLib.csproj": {
+                "projectPath": "H:\\dashrfit\\ManagementSoft\\DataLib\\DataLib.csproj"
               }
             }
           }
