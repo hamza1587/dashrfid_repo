@@ -64,7 +64,7 @@ namespace ECommerceCore.Controllers
             {
 
                 CurrentUser(GetLoginUserId());
-                var data = db.Timespent.GetViewData().Result;
+                var data = db.Timespent.Get().Result;
                 return View(data);
             }
         }
