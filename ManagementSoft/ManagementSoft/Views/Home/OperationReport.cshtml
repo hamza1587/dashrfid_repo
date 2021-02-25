@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataLib.Entities.TimeSpentOperations>
+﻿@model IEnumerable<DataLib.Entities.TimeSpent>
 @{
     ViewData["Title"] = "Operations Report";
     Layout = "~/Views/Shared/adminlayout.cshtml";
@@ -51,7 +51,7 @@
                                     <td><span class="badge badge-primary">@item.location_name</span></td>
                                     <td>---------<br />---------</td>
                                     <td><span class="badge badge-secondary"><big>WAITING</big></span></td>
-                                    <td>@item.total_minutes min</td>
+                                    <td>@item.minutes_from_now min</td>
                                     <td>0 hrs 33 min</td>
                                 </tr>
                             }
@@ -108,7 +108,7 @@
                 "searching": false,
                 "ordering": true,
                 "info": true,
-                "autoWidth": false,
+                "autoWidth": true,
                 "responsive": true,
             });
         });

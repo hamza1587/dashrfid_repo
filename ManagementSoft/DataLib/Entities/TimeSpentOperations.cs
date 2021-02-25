@@ -8,10 +8,12 @@ namespace DataLib.Entities
 {
     public class TimeSpentOperations
     {
-        public int total_minutes { get; set; }
         public int association_id { get; set; }
-        public string location_id { get; set; }      
-        public string location_name { get; set; }
-        public string asset_id { get; set; }        
+        public int location_id { get; set; }
+        public string location_name { get; set; }      
+        public string asset_id { get; set; }
+        public int minutes_from_now { get; set; }
+        public int location_count { get; set; }
+        public int total_minutes { get; set; }
     }
 }
