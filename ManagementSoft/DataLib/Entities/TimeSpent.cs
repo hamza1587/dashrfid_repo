@@ -15,5 +15,12 @@ namespace DataLib.Entities
         public int minutes_log { get; set; }
         public int minutes_from_now { get; set; }
         public int location_count { get; set; }
+        [DisplayFormat(DataFormatString = Constants.DateOnlyFormat)]
+        public DateTime created_at { get; set; }
+    }
+
+    public static class Constants
+    {
+        public const string DateOnlyFormat = "{0:MM/dd/yyyy}";
     }
 }

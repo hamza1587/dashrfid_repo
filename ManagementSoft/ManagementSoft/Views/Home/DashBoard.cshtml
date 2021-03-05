@@ -3,53 +3,90 @@
     ViewData["Title"] = "Operations dashboard";
     Layout = "~/Views/Shared/adminlayout.cshtml";
 }
+<meta http-equiv="refresh" content="120">
+<div id="buttons" class="text-center m-0"></div>
 <form role="form" id="quickForm" asp-action="DashBoard">
     <div class="card-body">
-        <table id="tbloperation" class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>Body</th>
-                    <th>Seq</th>
-                    <th>Place</th>
-                    <th>Area</th>
-                    <th>Conditions</th>
-                    <th>Status</th>
-                    <th>Offline Time</th>
-                    <th>OTD</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+        <div class="table-responsive">
+            <table id="tbloperation" class="table table-bordered table-hover">
+                <thead>
                     <tr>
-                        <td>MKDHH98421</td>
-                        <td>123</td>
-                        <td>@item.location_id</td>
-                        <td><span class="badge badge-primary">@item.location_name</span></td>
-                        <td>---------<br />---------</td>
-                        <td><span class="badge badge-secondary"><big>WAITING</big></span></td>
-                        <td>@item.total_minutes min</td>
-                        <td>0 hrs 33 min</td>
+                        <th>Body</th>
+                        <th>Seq</th>
+                        <th>Place</th>
+                        <th>Area</th>
+                        <th>Conditions</th>
+                        <th>Status</th>
+                        <th>Offline Time</th>
+                        <th>OTD</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        int min = item.total_minutes;
+                        TimeSpan elapsedTime = new TimeSpan(0, min, 0);
+                        int day = elapsedTime.Days;
+                        int hour = elapsedTime.Hours;
+                        int mint = elapsedTime.Minutes;
+                        string minutes = "";
+                        if (item.total_minutes <= 60)
+                        {
+                            minutes = string.Format("{0} minutes", mint);
+                        }
+                        if (item.total_minutes > 60 && item.total_minutes <= 72)
+                        {
+                            minutes = string.Format("{0} hour {1} minutes", hour, mint);
+                        }
+                        if (item.total_minutes > 72)
+                        {
+                            minutes = string.Format("{0} day {1} hours", day, hour);
+                        }
+                        <tr style='background-color: @(hour >= 2 ? "#ffcccb" : "white");'>
+
+                            <td>MKDHH98421</td>
+                            <td>123</td>
+                            <td>@item.location_id</td>
+                            <td><span class="badge badge-primary">@item.location_name</span></td>
+                            <td>---------</td>
+                            <td><span class="badge badge-secondary"><big>WAITING</big></span></td>
+                            <td>@minutes</td>
+                            <td>0 hrs 33 min</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </form>
 
 @section Scripts{
     <script>
 
-        $(function () {
-            $('#tbloperation').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            });
+        var tbloperation = $('#tbloperation').DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "processing": true,
+            "bProcessing": true,
+            "order": [],
+            "pageLength": 25,
+            "lengthChange": true,
+            "lengthMenu": [
+                [25, 100, 1000, -1],
+                [25, 100, 1000, "All"]
+            ],
         });
+        var buttons = new $.fn.dataTable.Buttons(tbloperation, {
+            buttons: [{
+                extend: 'excelHtml5',
+                title: 'Excel',
+                text: 'Export as excel',
+                className: 'bg-info btn-xs border-0 m-1',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                }
+            },
+            ]
+        }).container().appendTo($('#buttons'));
     </script>
 }

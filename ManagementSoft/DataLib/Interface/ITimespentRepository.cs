@@ -9,5 +9,8 @@ namespace DataLib.Interface
     public interface ITimespentRepository : IBaseRepository<TimeSpent>
     {
         Task<List<TimeSpentOperations>> GetViewData();
+        Task<List<TimeSpent>> GetAllData();
+        Task<List<TimeSpentOperations>> GetData(DateTime FromDate, DateTime ToDate);
+        Task<List<TimeSpent>> GetDateData(DateTime FromDate, DateTime ToDate);
     }
 }

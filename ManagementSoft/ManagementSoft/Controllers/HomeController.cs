@@ -19,6 +19,10 @@ using Microsoft.Extensions.Hosting;
 using System.IO;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
+using System.Net.Http;
+using System.Net;
+using System.Text;
+using Nancy.Json;
 
 namespace ECommerceCore.Controllers
 {
@@ -29,7 +33,7 @@ namespace ECommerceCore.Controllers
         private readonly IHttpContextAccessor _httpContextAccessor;
         public IConfiguration Configuration { get; }
         private readonly IHostingEnvironment _hostingEnvironment;
-
+        private readonly IHttpClientFactory _httpClientFactory;
 
         public HomeController(ILogger<HomeController> logger, IUnitofWork _db, IHttpContextAccessor httpContextAccessor, IConfiguration configuration, IHostingEnvironment en)
         {
@@ -40,6 +44,29 @@ namespace ECommerceCore.Controllers
             _hostingEnvironment = en;
         }
 
+        public async Task<IActionResult> API()
+        {
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    ICS_DATA result = new ICS_DATA();
+                    using (HttpResponseMessage Response = await client.GetAsync("http://tmmgtwicsp03/icsQueryService/api/Query/Results/?format=xml&extra_info=AutomatedReports&query_name=WR_OFFLINE_ASSY&SERVICE_KEY=13APT2P4F1C26QIUDOT35O&VIN=KYDH571723"))
+                    {
+                        if (Response.IsSuccessStatusCode)
+                        {
+                            var data = Response.Content.ReadAsStringAsync().Result;
+                            result = JsonConvert.DeserializeObject<ICS_DATA>(data);
+                        }
+                        return View(result);
+                    }
+                }
+            }catch(Exception)
+            {
+                return View();
+            }
+        }
+
         public IActionResult DashBoard()
         {
             if (!CheckUserexists())
@@ -48,12 +75,12 @@ namespace ECommerceCore.Controllers
             }
             else
             {
-                
                 CurrentUser(GetLoginUserId());
                 var data = db.Timespent.GetViewData().Result;                
                 return View(data);
             }
         }
+        [HttpGet]
         public IActionResult OperationReport()
         {
             if (!CheckUserexists())
@@ -62,12 +89,26 @@ namespace ECommerceCore.Controllers
             }
             else
             {
-
                 CurrentUser(GetLoginUserId());
                 var data = db.Timespent.Get().Result;
                 return View(data);
             }
         }
+        [HttpPost]
+        public IActionResult OperationReport(DateTime FromDate, DateTime ToDate)
+        {
+            if (!CheckUserexists())
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                CurrentUser(GetLoginUserId());
+                var data = db.Timespent.GetDateData(FromDate, ToDate).Result;
+                return View(data);
+            }
+        }
+        [HttpGet]
         public IActionResult OperationReport2()
         {
             if (!CheckUserexists())
@@ -82,6 +123,21 @@ namespace ECommerceCore.Controllers
                 return View(data);
             }
         }
+        [HttpPost]
+        public IActionResult OperationReport2(DateTime FromDate, DateTime ToDate)
+        {
+            if (!CheckUserexists())
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+
+                CurrentUser(GetLoginUserId());
+                var data = db.Timespent.GetData(FromDate, ToDate).Result;
+                return View(data);
+            }
+        }
 
         public IActionResult Index()
         {
@@ -91,7 +147,7 @@ namespace ECommerceCore.Controllers
             }
             else
             {
-               CurrentUser(GetLoginUserId());
+                CurrentUser(GetLoginUserId());
                 var data = db.Timespent.GetViewData().Result;
                 return View(data);
             }

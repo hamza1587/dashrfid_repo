@@ -14,7 +14,6 @@ namespace DataLib.Repository
     public class TimespentRepository : IBaseRepository<TimeSpent>, ITimespentRepository
     {
         private readonly DBContext _context;
-
         public TimespentRepository(DBContext context)
         {
             _context = context;
@@ -26,12 +25,30 @@ namespace DataLib.Repository
             return await _context.TimeSpent.ToListAsync();
         }
 
+        public async Task<List<TimeSpent>> GetDateData(DateTime FromDate, DateTime ToDate)
+        {
+            var results = await _context.TimeSpent.Where(x => x.created_at >= FromDate && x.created_at <= ToDate).ToListAsync();
+            return results;
+        }
+
         [Obsolete]
         public async Task<List<TimeSpentOperations>> GetViewData()
         {           
             var results = await _context.TimeSpentOperations.ToListAsync();
             return results;
-        } 
+        }
+
+        public async Task<List<TimeSpent>> GetAllData()
+        {
+            var results = await _context.TimeSpent.ToListAsync();
+            return results;
+        }
+
+        public async Task<List<TimeSpentOperations>> GetData(DateTime FromDate, DateTime ToDate)
+        {
+            var results = await _context.TimeSpentOperations.Where(x => x.created_at >= FromDate && x.created_at <= ToDate).ToListAsync();
+            return results;
+        }
 
         public async Task<TimeSpent> GetById(int id)
         {

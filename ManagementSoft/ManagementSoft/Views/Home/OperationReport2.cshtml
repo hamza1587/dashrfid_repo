@@ -5,21 +5,21 @@
 }
 <form role="form" id="quickForm" asp-action="OperationReport">
     <div class="card-body">
-        <div class="row">
-            <div class="col-md-2">
-                <label for="fromdate" class="control-label">From Date</label>
-                <input type="date" id="fromdate" required class="form-control" />
+        <form action="@Url.Action("Home","OperationReport2")" method="post">
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="fromdate" class="control-label">From Date</label>
+                    <input type="date" id="fromdate" name="FromDate" required class="form-control" />
+                </div>
+                <div class="col-md-2">
+                    <label for="todate" class="control-label">To Date</label>
+                    <input type="date" id="todate" name="ToDate" required class="form-control" />
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success" style="margin-top:31px;" value="Export to Excel">Search &nbsp;<i class="fas fa-search"> </i></button>
+                </div>
             </div>
-            <div class="col-md-2">
-                <label for="todate" class="control-label">To Date</label>
-                <input type="date" id="todate" required class="form-control" />
-            </div>
-            <div class="col-md-2">
-                <button type="button" class="btn btn-success" style="margin-top:31px;" value="Export to Excel" onclick="Export()">Search &nbsp;<i class="fas fa-search"> </i></button>
-            </div>
-
-        </div>
-
+        </form>
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title"></h3>

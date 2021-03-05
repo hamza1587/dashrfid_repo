@@ -15,5 +15,7 @@ namespace DataLib.Entities
         public int minutes_from_now { get; set; }
         public int location_count { get; set; }
         public int total_minutes { get; set; }
+        [DisplayFormat(DataFormatString = Constants.DateOnlyFormat)]
+        public DateTime created_at { get; set; }
     }
 }

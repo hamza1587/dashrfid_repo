@@ -1,0 +1,25 @@
+﻿@model IEnumerable<DataLib.Entities.ICS_DATA>
+@{
+    ViewData["Title"] = "API";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+<table class="table table-bordered table-condensed">
+    <thead>
+        <tr>
+            <td>Order ID</td>
+            <td>Amount</td>
+            <td>Responce Code</td>
+            <td>Responce Description</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model) { 
+            <tr>
+                <td>@item.order_id</td>
+                <td>@item.amount</td>
+                <td>@item.response_code</td>
+                <td>@item.response_desc</td>
+            </tr>
+        }
+    </tbody>
+</table>

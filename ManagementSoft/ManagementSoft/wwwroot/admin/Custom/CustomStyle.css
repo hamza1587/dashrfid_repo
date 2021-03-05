@@ -69,51 +69,51 @@
 }
 
 .ParkingPlace {
-    height: 80px;
-    width: 44px;
+    height: 70px;
+    width: 32px;
     margin-left: 5px;
     background-color: #555;
 }
 .ParkingPlaceOccupie {
-    height: 80px;
-    width:44px;
+    height: 70px;
+    width:32px;
     margin-left: 5px;
     background-color: #126fa5;
 }
 .ParkingArea {
-    height: 265px;
-    width: 150px;
+    height: 140px;
+    width: 110px;
     margin-left: 5px;
     background-color: #555;
 }
 .ParkingAreaOccupie {
-    height: 265px;
-    width: 150px;
+    height: 140px;
+    width: 110px;
     margin-left: 5px;
     background-color: #3ca0da;
 }
 .ParkingAreaHorizontal {
-    height: 80px;
+    height: 70px;
     width: 125px;
     background-color: #555;
 }
 .ParkingAreaHorizontalOccupie {
-    height: 80px;
+    height: 70px;
     width: 125px;
     background-color: #3ca0da;
 }
 .ParkingPlaceHorizontal {
     margin-top: 5px;
-    height: 44px;
-    width: 95px;
-    margin-left: 30px;
+    height: 32px;
+    width: 80px;
+    margin-left: 45px;
     background-color: #555;
 }
 .ParkingPlaceHorizontalOccupie {
     margin-top: 5px;
-    height: 44px;
-    width: 95px;
-    margin-left: 30px;
+    height: 32px;
+    width: 80px;
+    margin-left: 45px;
     background-color: #126fa5;
 }
 

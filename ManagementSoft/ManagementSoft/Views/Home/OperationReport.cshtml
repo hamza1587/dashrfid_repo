@@ -5,61 +5,82 @@
 }
 <form role="form" id="quickForm" asp-action="OperationReport">
     <div class="card-body">
-        <div class="row">
-            @*<div class="col-md-4">
-                    <button type="button" class="btn btn-success" value="Export to Excel" onclick="Export()">Export to Excel &nbsp;<i class="fas fa-file-excel"> </i></button>
-                    <a href="/Home/DownloadFile?fileName=ResourceReport.xlsx" class="btn btn-info" download="">Download&nbsp;&nbsp; <i class="fas fa-file-download"> </i></a>
-                </div>*@
-            <div class="col-md-2">
-                <label for="fromdate" class="control-label">From Date</label>
-                <input type="date" id="fromdate" required class="form-control" />
+        <form action="@Url.Action("Home","OperationReport")" method="post">
+            <div class="form-group row">
+                <div class="col-md-2">
+                    <label for="fromdate" class="control-label">From Date</label>
+                    <input type="date" id="fromdate" name="FromDate" required class="form-control" value="@ViewData["FromDate"]" />
+                </div>
+                <div class="col-md-2">
+                    <label for="todate" class="control-label">To Date</label>
+                    <input type="date" id="todate" name="ToDate" required class="form-control" value="@ViewData["ToDate"]" />
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success" style="margin-top:31px;">Search &nbsp;<i class="fas fa-search"> </i></button>
+                </div>
             </div>
-            <div class="col-md-2">
-                <label for="todate" class="control-label">To Date</label>
-                <input type="date" id="todate" required class="form-control" />
-            </div>
-            <div class="col-md-2">
-                <button type="button" class="btn btn-success" style="margin-top:31px;" onclick="Searchdata()">Search &nbsp;<i class="fas fa-search"> </i></button>
-            </div>
-        </div>
+        </form>
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title"></h3>
+                <h3 class="card-title">
+                    <div id="buttons" class="text-center m-0"></div>
+                </h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <table id="tbloperation" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Body</th>
-                            <th>Seq</th>
-                            <th>Place</th>
-                            <th>Area</th>
-                            <th>Conditions</th>
-                            <th>Status</th>
-                            <th>Offline Time</th>
-                            <th>OTD</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
+                <div class="table-responsive">
+                    <table id="tbloperation" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Body</th>
+                                <th>Seq</th>
+                                <th>Place</th>
+                                <th>Area</th>
+                                <th>Conditions</th>
+                                <th>Status</th>
+                                <th>Offline Time</th>
+                                <th>OTD</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
                             {
-                                <tr>
+                                int min = item.minutes_from_now;
+                                TimeSpan elapsedTime = new TimeSpan(0, min, 0);
+                                int day = elapsedTime.Days;
+                                int hour = elapsedTime.Hours;
+                                int mint = elapsedTime.Minutes;
+                                string minutes = "";
+                                if (item.minutes_from_now <= 60)
+                                {
+                                    minutes = string.Format("{0} minutes", mint);
+                                }
+                                if (item.minutes_from_now > 60 && item.minutes_from_now <= 72)
+                                {
+                                    minutes = string.Format("{0} hour {1} minutes", hour, mint);
+                                }
+                                if (item.minutes_from_now > 72)
+                                {
+                                    minutes = string.Format("{0} day {1} hours", day, hour);
+                                }
+                                <tr style='background-color: @(hour >= 2 ? "#ffcccb" : "white");'>
+
                                     <td>MKDHH98421</td>
                                     <td>123</td>
                                     <td>@item.location_id</td>
                                     <td><span class="badge badge-primary">@item.location_name</span></td>
-                                    <td>---------<br />---------</td>
+                                    <td>---------</td>
                                     <td><span class="badge badge-secondary"><big>WAITING</big></span></td>
-                                    <td>@item.minutes_from_now min</td>
+                                    <td>@minutes</td>
                                     <td>0 hrs 33 min</td>
                                 </tr>
                             }
-                    </tbody>
+                        </tbody>
 
-                </table>
+                    </table>
+                </div>
+                <!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
         </div>
     </div>
 </form>
@@ -79,15 +100,14 @@
                     FromDate: fromdate,
                     ToDate: todate,
                 },
-
-                success: function (data)
-                {
-                    if (data !== null)
-                    {
+                dataType: "json",
+                success: function (data) {
+                    alert(data);
+                    if (data !== null) {
 
                     }
-                    alert("Data Export Successfuly");
-                    location.reload();
+                    //alert("Data Export Successfuly");
+                    //location.reload();
 
                 },
                 error: function (x) {
@@ -96,32 +116,30 @@
 
             })
         }
-
-        $(function () {
-            $("#tbloperation").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#tbloperation_wrapper .col-md-6:eq(0)');
-            $('#example1').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": true,
-                "responsive": true,
-            });
+        var tbloperation = $('#tbloperation').DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "processing": true,
+            "bProcessing": true,
+            "order": [],
+            "pageLength": 25,
+            "lengthChange": true,
+            "lengthMenu": [
+                [25, 100, 1000, -1],
+                [25, 100, 1000, "All"]
+            ],
         });
-           //$(function () {
-           //    $('#tbloperation').DataTable({
-           //        "paging": true,
-           //        "lengthChange": false,
-           //        "searching": true,
-           //        "ordering": true,
-           //        "info": false,
-           //        "autoWidth": false,
-           //        "responsive": true,
-           //    });
-           //});
+        var buttons = new $.fn.dataTable.Buttons(tbloperation, {
+            buttons: [{
+                extend: 'excelHtml5',
+                title: 'Excel',
+                text: 'Export as excel',
+                className: 'bg-info btn-xs border-0 m-1',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                }
+            },
+            ]
+        }).container().appendTo($('#buttons'));
     </script>
 }
