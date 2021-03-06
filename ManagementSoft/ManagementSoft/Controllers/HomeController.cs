@@ -48,29 +48,6 @@ namespace ECommerceCore.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> API()
-        {
-            try
-            {
-                using (HttpClient client = new HttpClient())
-                {
-                    using (HttpResponseMessage Response = await client.GetAsync("https://celayawebservice.azurewebsites.net/WS1/CLJF193875"))
-                    {
-                        if (Response.IsSuccessStatusCode)
-                        {
-                            var data = Response.Content.ReadAsStringAsync().Result;
-                            var result = JsonConvert.DeserializeObject<Example>(data);
-                            return View(result);
-                        }
-                        return View();
-                    }
-                }
-            }
-            catch(Exception)
-            {
-                return View();
-            }
-        }
         [HttpGet]
         public async Task<IActionResult> DashBoard()
         {
@@ -108,9 +85,6 @@ namespace ECommerceCore.Controllers
                 {
                     return View();
                 }
-                //CurrentUser(GetLoginUserId());
-                //var data = db.Timespent.GetViewData().Result;                
-                //return View(data);
             }
         }
         [HttpGet]
@@ -209,8 +183,6 @@ namespace ECommerceCore.Controllers
                     return View();
                 }
             }
-            //var data = db.Timespent.GetViewData().Result;
-            //return View(data);
         }
 
         public JsonResult SearchtimeSpent(DateTime FromDate,DateTime ToDate)
