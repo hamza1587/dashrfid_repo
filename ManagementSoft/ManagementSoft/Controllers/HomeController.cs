@@ -71,7 +71,7 @@ namespace ECommerceCore.Controllers
                 return View();
             }
         }
-
+        [HttpGet]
         public async Task<IActionResult> DashBoard()
         {
             if (!CheckUserexists())
@@ -80,20 +80,33 @@ namespace ECommerceCore.Controllers
             }
             else
             {
-                using (HttpClient client = new HttpClient())
+                try
                 {
-                    using (HttpResponseMessage Response = await client.GetAsync("https://celayawebservice.azurewebsites.net/WS1/KYDH571723"))
+                    CurrentUser(GetLoginUserId());
+                    var times = db.Timespent.GetViewData().Result;
+                    var viewModel = new API();
+                    foreach (var items in times)
                     {
-                        var viewModel = new API();
-                        if (Response.IsSuccessStatusCode)
+                        var asset_id = items.asset_id;
+                        using (HttpClient client = new HttpClient())
                         {
-                            var data = Response.Content.ReadAsStringAsync().Result;
-                            var result = JsonConvert.DeserializeObject<Example>(data);
-                            viewModel.Example = result;
-                            viewModel.TimeSpentOperations = _context.TimeSpentOperations.ToList();
+                            using (HttpResponseMessage Response = await client.GetAsync("https://celayawebservice.azurewebsites.net/WS1/" + asset_id))
+                            {
+                                if (Response.IsSuccessStatusCode)
+                                {
+                                    var data = Response.Content.ReadAsStringAsync().Result;
+                                    var result = JsonConvert.DeserializeObject<Example>(data);
+                                    viewModel.Example = result;
+                                    viewModel.TimeSpentOperations = _context.TimeSpentOperations.ToList();
+                                }
+                            }
                         }
-                        return View(viewModel);
                     }
+                    return View(viewModel);
+                }
+                catch(Exception)
+                {
+                    return View();
                 }
                 //CurrentUser(GetLoginUserId());
                 //var data = db.Timespent.GetViewData().Result;                
@@ -167,23 +180,35 @@ namespace ECommerceCore.Controllers
             }
             else
             {
-                using (HttpClient client = new HttpClient())
+                try
                 {
-                    using (HttpResponseMessage Response = await client.GetAsync("https://celayawebservice.azurewebsites.net/WS1/KYDH571723"))
+                    CurrentUser(GetLoginUserId());
+                    var times = db.Timespent.GetViewData().Result;
+                    var viewModel = new API();
+                    foreach (var items in times)
                     {
-                        var viewModel = new API();
-                        if (Response.IsSuccessStatusCode)
+                        var asset_id = items.asset_id;
+                        using (HttpClient client = new HttpClient())
                         {
-                            var data = Response.Content.ReadAsStringAsync().Result;
-                            var result = JsonConvert.DeserializeObject<Example>(data);
-                            viewModel.Example = result;
-                            viewModel.TimeSpentOperations = _context.TimeSpentOperations.ToList();
+                            using (HttpResponseMessage Response = await client.GetAsync("https://celayawebservice.azurewebsites.net/WS1/" + asset_id))
+                            {
+                                if (Response.IsSuccessStatusCode)
+                                {
+                                    var data = Response.Content.ReadAsStringAsync().Result;
+                                    var result = JsonConvert.DeserializeObject<Example>(data);
+                                    viewModel.Example = result;
+                                    viewModel.TimeSpentOperations = _context.TimeSpentOperations.ToList();
+                                }
+                            }
                         }
-                        return View(viewModel);
                     }
+                    return View(viewModel);
+                }
+                catch (Exception)
+                {
+                    return View();
                 }
             }
-            //CurrentUser(GetLoginUserId());
             //var data = db.Timespent.GetViewData().Result;
             //return View(data);
         }

@@ -1,67 +1,104 @@
 ﻿@model DataLib.Entities.API
-    @{
-        ViewData["Title"] = "Operations dashboard";
-        Layout = "~/Views/Shared/adminlayout.cshtml";
-    }
-    <meta http-equiv="refresh" content="120">
-    <div id="buttons" class="text-center m-0"></div>
-    <form role="form" id="quickForm" asp-action="DashBoard">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table id="tbloperation" class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Body</th>
-                            <th>Seq</th>
-                            <th>Place</th>
-                            <th>Area</th>
-                            <th>Conditions</th>
-                            <th>Status</th>
-                            <th>Offline Time</th>
-                            <th>OTD</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+@{
+    ViewData["Title"] = "Operations dashboard";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+<meta http-equiv="refresh" content="120">
+<div id="buttons" class="text-center m-0"></div>
+<form role="form" id="quickForm" asp-action="DashBoard">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="tbloperation" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Body</th>
+                        <th>Seq</th>
+                        <th>Place</th>
+                        <th>Area</th>
+                        <th>Conditions</th>
+                        <th>Status</th>
+                        <th>Offline Time</th>
+                        <th>OTD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.TimeSpentOperations)
+                    {
                         @foreach (var items in Model.Example.ICS_DATA)
                         {
-                            @foreach (var item in Model.TimeSpentOperations.Where(x => x.asset_id == items.DATA.VIN))
+                            int min = item.total_minutes;
+                            TimeSpan elapsedTime = new TimeSpan(0, min, 0);
+                            int day = elapsedTime.Days;
+                            int hour = elapsedTime.Hours;
+                            int mint = elapsedTime.Minutes;
+                            string minutes = "";
+                            if (item.total_minutes <= 60)
                             {
-                                int min = item.total_minutes;
-                                TimeSpan elapsedTime = new TimeSpan(0, min, 0);
-                                int day = elapsedTime.Days;
-                                int hour = elapsedTime.Hours;
-                                int mint = elapsedTime.Minutes;
-                                string minutes = "";
-                                if (item.total_minutes <= 60)
-                                {
-                                    minutes = string.Format("{0} minutes", mint);
-                                }
-                                if (item.total_minutes > 60 && item.total_minutes <= 72)
-                                {
-                                    minutes = string.Format("{0} hour {1} minutes", hour, mint);
-                                }
-                                if (item.total_minutes > 72)
-                                {
-                                    minutes = string.Format("{0} day {1} hours", day, hour);
-                                }
-                                <tr style='background-color: @(hour >= 2 ? "#ffcccb" : "white");'>
-
-                                    <td>@items.DATA.BODY_NUM</td>
-                                    <td>@items.DATA.SEQ_NUM</td>
-                                    <td>@item.location_id</td>
-                                    <td><span class="badge badge-primary">@item.location_name</span></td>
-                                    <td>@items.DATA.CONDITIONS</td>
-                                    <td><span class="badge badge-secondary"><big>WAITING</big></span></td>
-                                    <td>@minutes</td>
-                                    <td>@items.DATA.OUTSIDE</td>
-                                </tr>
+                                minutes = string.Format("{0} minutes", mint);
                             }
+                            if (item.total_minutes > 60 && item.total_minutes <= 72)
+                            {
+                                minutes = string.Format("{0} hour {1} minutes", hour, mint);
+                            }
+                            if (item.total_minutes > 72)
+                            {
+                                minutes = string.Format("{0} day {1} hours", day, hour);
+                            }
+
+                            var body_num = "";
+                            var seq_num = "";
+                            var conditions = "";
+                            string outside = "";
+                            @if (items.DATA.BODY_NUM != "")
+                            {
+                                body_num = items.DATA.BODY_NUM;
+                            }
+                            else
+                            {
+                                body_num = "-------------------";
+                            }
+                            @if (items.DATA.SEQ_NUM != "")
+                            {
+                                seq_num = items.DATA.SEQ_NUM;
+                            }
+                            else
+                            {
+                                seq_num = "-------------------";
+                            }
+                            @if (items.DATA.CONDITIONS != "")
+                            {
+                                conditions = items.DATA.CONDITIONS;
+                            }
+                            else
+                            {
+                                conditions = "-------------------";
+                            }
+                            @if (items.DATA.OUTSIDE != null)
+                            {
+                                outside = items.DATA.OUTSIDE.ToString();
+                            }
+                            else
+                            {
+                                outside = "-------------------";
+                            }
+                            <tr style='background-color: @(hour >= 2 ? "#ffcccb" : "white");'>
+
+                                <td>@body_num</td>
+                                <td>@seq_num</td>
+                                <td>@item.location_id</td>
+                                <td><span class="badge badge-primary">@item.location_name</span></td>
+                                <td>@conditions</td>
+                                <td><span class="badge badge-secondary"><big>WAITING</big></span></td>
+                                <td>@minutes</td>
+                                <td>@outside</td>
+                            </tr>
                         }
-                    </tbody>
-                </table>
-            </div>
+                    }
+                </tbody>
+            </table>
         </div>
-    </form>
+    </div>
+</form>
 
 @section Scripts{
     <script>

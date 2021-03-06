@@ -73,9 +73,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var items in Model.Example.ICS_DATA)
+                @foreach (var item in Model.TimeSpentOperations)
                 {
-                    @foreach (var item in Model.TimeSpentOperations.Where(x=>x.asset_id == items.DATA.VIN))
+                    @foreach (var items in Model.Example.ICS_DATA)
                     {
                         int min = item.total_minutes;
                         TimeSpan elapsedTime = new TimeSpan(0, min, 0);
@@ -95,18 +95,44 @@
                         {
                             minutes = string.Format("{0} day {1} hours", day, hour);
                         }
-
+                        var body_num = "";
+                        var seq_num = "";
+                        string outside = "";
+                        @if (items.DATA.BODY_NUM != "")
+                        {
+                            body_num = items.DATA.BODY_NUM;
+                        }
+                        else
+                        {
+                            body_num = "-------------------";
+                        }
+                        @if (items.DATA.SEQ_NUM != "")
+                        {
+                            seq_num = items.DATA.SEQ_NUM;
+                        }
+                        else
+                        {
+                            seq_num = "-------------------";
+                        }
+                        @if (items.DATA.OUTSIDE != null)
+                        {
+                            outside = items.DATA.OUTSIDE.ToString();
+                        }
+                        else
+                        {
+                            outside = "-------------------";
+                        }
                         <tr style='background-color: @(hour >= 2 ? "#ffcccb" : "white");'>
                             <td>@item.asset_id</td>
                             <td><span class="badge badge-primary">@item.location_name</span></td>
-                            <td>@items.DATA.BODY_NUM</td>
-                            <td>@items.DATA.SEQ_NUM</td>
+                            <td>@body_num</td>
+                            <td>@seq_num</td>
                             <td>@minutes</td>
-                            <td>@items.DATA.OUTSIDE</td>
+                            <td>@outside</td>
                         </tr>
                     }
                 }
-                    </tbody>
+            </tbody>
         </table>
         <!-- /.card -->
     </div>
@@ -128,14 +154,14 @@
 
     .ParkingArea {
         height: 140px;
-        width: 110px;
+        width: 80px;
         margin-left: 5px;
         background-color: #555;
     }
 
     .ParkingAreaOccupie {
         height: 140px;
-        width: 110px;
+        width: 80px;
         margin-left: 5px;
         background-color: #3ca0da;
     }
