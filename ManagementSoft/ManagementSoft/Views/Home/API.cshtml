@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataLib.Entities.ICS_DATA>
+﻿@model DataLib.Entities.Example
 @{
     ViewData["Title"] = "API";
     Layout = "~/Views/Shared/adminlayout.cshtml";
@@ -13,12 +13,14 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var item in Model) { 
+        @foreach (var item in Model.ICS_DATA)
+        {
+
             <tr>
-                <td>@item.order_id</td>
-                <td>@item.amount</td>
-                <td>@item.response_code</td>
-                <td>@item.response_desc</td>
+                <td>@item.DATA.BODY_NUM</td>
+                <td>@item.DATA.SEQ_NUM</td>
+                <td>@item.DATA.CONDITIONS</td>
+                <td>@item.DATA.OUTSIDE</td>
             </tr>
         }
     </tbody>

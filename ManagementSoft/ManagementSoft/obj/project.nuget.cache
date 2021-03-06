@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "u1YAhBYjDmYr14sUDrYIjbPXv3O3Ml1gmaqWbHj9GUzvApjJFF1hRA0wBOq2B+8wK5ZW35LwifmR4OmDCG4sjg==",
+  "dgSpecHash": "CtpsXEV79EpkPxljyDosRTl5ZzLXfY9K+bbjwC6oq9UAIfhDevLMajF78RwJDuC5rP5zsTLlo0VodgT9boxAuQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\hamza\\Desktop\\dashrfid_repo\\dashrfid_repo\\ManagementSoft\\ManagementSoft\\ManagementSoft.csproj",
   "expectedPackageFiles": [
@@ -60,7 +60,7 @@
     "C:\\Users\\hamza\\.nuget\\packages\\microsoft.win32.systemevents\\4.5.0\\microsoft.win32.systemevents.4.5.0.nupkg.sha512",
     "C:\\Users\\hamza\\.nuget\\packages\\nancy\\2.0.0\\nancy.2.0.0.nupkg.sha512",
     "C:\\Users\\hamza\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Users\\hamza\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\hamza\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\hamza\\.nuget\\packages\\npoi\\2.5.2\\npoi.2.5.2.nupkg.sha512",
     "C:\\Users\\hamza\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Users\\hamza\\.nuget\\packages\\portable.bouncycastle\\1.8.6\\portable.bouncycastle.1.8.6.nupkg.sha512",

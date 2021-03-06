@@ -23,6 +23,8 @@ using System.Net.Http;
 using System.Net;
 using System.Text;
 using Nancy.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Converters;
 
 namespace ECommerceCore.Controllers
 {
@@ -50,18 +52,19 @@ namespace ECommerceCore.Controllers
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    ICS_DATA result = new ICS_DATA();
-                    using (HttpResponseMessage Response = await client.GetAsync("http://tmmgtwicsp03/icsQueryService/api/Query/Results/?format=xml&extra_info=AutomatedReports&query_name=WR_OFFLINE_ASSY&SERVICE_KEY=13APT2P4F1C26QIUDOT35O&VIN=KYDH571723"))
+                    using (HttpResponseMessage Response = await client.GetAsync("https://celayawebservice.azurewebsites.net/WS1/3TYRX5GN4LT000008"))
                     {
                         if (Response.IsSuccessStatusCode)
                         {
                             var data = Response.Content.ReadAsStringAsync().Result;
-                            result = JsonConvert.DeserializeObject<ICS_DATA>(data);
+                            var result = JsonConvert.DeserializeObject<Example>(data);
+                            return View(result);
                         }
-                        return View(result);
+                        return View();
                     }
                 }
-            }catch(Exception)
+            }
+            catch(Exception)
             {
                 return View();
             }
