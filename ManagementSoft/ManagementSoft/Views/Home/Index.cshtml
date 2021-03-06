@@ -1,12 +1,12 @@
-﻿@model List<DataLib.Entities.TimeSpentOperations>
+﻿@model DataLib.Entities.API
 @{
     ViewData["Title"] = "Tablero principal";
     Layout = "~/Views/Shared/adminlayout.cshtml";
 }
 @{
-    int reserve = Model.Count();
+    int reserve = Model.TimeSpentOperations.Count();
 
-    List<DataLib.Entities.TimeSpentOperations> list = Model.ToList();
+    List<DataLib.Entities.TimeSpentOperations> list = Model.TimeSpentOperations.ToList();
     int[] ids = new int[] { 31, 2, 3, 4, 5, 6, 7, 8, 9,
         10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 32, 24, 25, 26, 27, 28, 29, 30 };
 }
@@ -60,7 +60,6 @@
         </div>
     </div>
 
-    </div>
     <div class="table-responsive">
         <table id="tbllayout" class="table table-bordered table-hover">
             <thead>
@@ -74,36 +73,40 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var items in Model.Example.ICS_DATA)
                 {
-                    int min = item.total_minutes;
-                    TimeSpan elapsedTime = new TimeSpan(0, min, 0);
-                    int day = elapsedTime.Days;
-                    int hour = elapsedTime.Hours;
-                    int mint = elapsedTime.Minutes;
-                    string minutes = "";
-                    if (item.total_minutes <= 60)
+                    @foreach (var item in Model.TimeSpentOperations.Where(x=>x.asset_id == items.DATA.VIN))
                     {
-                        minutes = string.Format("{0} minutes", mint);
+                        int min = item.total_minutes;
+                        TimeSpan elapsedTime = new TimeSpan(0, min, 0);
+                        int day = elapsedTime.Days;
+                        int hour = elapsedTime.Hours;
+                        int mint = elapsedTime.Minutes;
+                        string minutes = "";
+                        if (item.total_minutes <= 60)
+                        {
+                            minutes = string.Format("{0} minutes", mint);
+                        }
+                        if (item.total_minutes > 60 && item.total_minutes <= 72)
+                        {
+                            minutes = string.Format("{0} hour {1} minutes", hour, mint);
+                        }
+                        if (item.total_minutes > 72)
+                        {
+                            minutes = string.Format("{0} day {1} hours", day, hour);
+                        }
+
+                        <tr style='background-color: @(hour >= 2 ? "#ffcccb" : "white");'>
+                            <td>@item.asset_id</td>
+                            <td><span class="badge badge-primary">@item.location_name</span></td>
+                            <td>@items.DATA.BODY_NUM</td>
+                            <td>@items.DATA.SEQ_NUM</td>
+                            <td>@minutes</td>
+                            <td>@items.DATA.OUTSIDE</td>
+                        </tr>
                     }
-                    if (item.total_minutes > 60 && item.total_minutes <= 72)
-                    {
-                        minutes = string.Format("{0} hour {1} minutes", hour, mint);
-                    }
-                    if (item.total_minutes > 72)
-                    {
-                        minutes = string.Format("{0} day {1} hours", day, hour);
-                    }
-                    <tr style='background-color: @(hour >= 2 ? "#ffcccb" : "white");'>
-                        <td>@item.asset_id</td>
-                        <td><span class="badge badge-primary">@item.location_name</span></td>
-                        <td>MKDHH98421</td>
-                        <td>123</td>
-                        <td>@minutes</td>
-                        <td>0 hrs 33 min</td>
-                    </tr>
                 }
-            </tbody>
+                    </tbody>
         </table>
         <!-- /.card -->
     </div>
@@ -170,7 +173,7 @@
         $(document).ready(function () {
             if ($("#GetClass-31").attr("data-id") == 31) {
                 $("#GetClass-31").addClass("ParkingAreaOccupie");
-            } 
+            }
             if ($("#GetClass-1").attr("data-id") == 1) {
                 $("#GetClass-1").addClass("ParkingPlaceOccupie");
             }
@@ -264,7 +267,7 @@
             ///////////////////////////////////////////////////////////////
             if ($("#Booked-2").attr("data-id") == 2) {
                 $("#Booked-2").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-3").attr("data-id") == 3) {
                 $("#Booked-3").addClass("ParkingPlace");
             }
@@ -282,7 +285,7 @@
             }
             if ($("#Booked-8").attr("data-id") == 8) {
                 $("#Booked-8").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-9").attr("data-id") == 9) {
                 $("#Booked-9").addClass("ParkingPlace");
             }
@@ -300,55 +303,55 @@
             }
             if ($("#Booked-14").attr("data-id") == 14) {
                 $("#Booked-14").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-15").attr("data-id") == 15) {
                 $("#Booked-15").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-16").attr("data-id") == 16) {
                 $("#Booked-16").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-17").attr("data-id") == 17) {
                 $("#Booked-17").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-18").attr("data-id") == 18) {
                 $("#Booked-18").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-19").attr("data-id") == 19) {
                 $("#Booked-19").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-20").attr("data-id") == 20) {
                 $("#Booked-20").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-21").attr("data-id") == 21) {
                 $("#Booked-21").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-22").attr("data-id") == 22) {
                 $("#Booked-22").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-23").attr("data-id") == 23) {
                 $("#Booked-23").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-24").attr("data-id") == 24) {
                 $("#Booked-24").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-25").attr("data-id") == 25) {
                 $("#Booked-25").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-26").attr("data-id") == 26) {
                 $("#Booked-26").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-27").attr("data-id") == 27) {
                 $("#Booked-27").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-28").attr("data-id") == 28) {
                 $("#Booked-28").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-29").attr("data-id") == 29) {
                 $("#Booked-29").addClass("ParkingPlace");
-            } 
+            }
             if ($("#Booked-30").attr("data-id") == 30) {
                 $("#Booked-30").addClass("ParkingPlace");
-            } 
+            }
         })
         function DataTooltip(AssetID, LocationName) {
             if (AssetID == undefined) {
@@ -368,7 +371,7 @@
             }
         }
         $(function () {
-            $('#tbllayout').DataTable({
+            var tbllayout = $('#tbllayout').DataTable({
                 "paging": true,
                 "lengthChange": false,
                 "searching": false,
@@ -377,6 +380,27 @@
                 "autoWidth": false,
                 "responsive": true,
             });
+            var pageInfo = tbllayout.page.info(),
+
+                // Set the ending interval to the last page
+                endInt = pageInfo.end,
+
+                // Current page
+                currentInt = 0,
+
+                // Start an interval to go to the "next" page every 3 seconds
+                interval = setInterval(function () {
+                    // "Next" ...
+                    tbllayout.page(currentInt).draw('page');
+
+                    // Increment the current page int
+                    currentInt++;
+
+                    // If were on the last page, reset the currentInt to the first page #
+                    if (currentInt === endInt)
+                        currentInt = 0;
+
+                }, 2000); // 2 seconds
         });
     </script>
 }

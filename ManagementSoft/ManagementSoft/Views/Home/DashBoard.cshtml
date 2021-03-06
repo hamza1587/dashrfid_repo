@@ -1,64 +1,67 @@
-﻿@model IEnumerable<DataLib.Entities.TimeSpentOperations>
-@{
-    ViewData["Title"] = "Operations dashboard";
-    Layout = "~/Views/Shared/adminlayout.cshtml";
-}
-<meta http-equiv="refresh" content="120">
-<div id="buttons" class="text-center m-0"></div>
-<form role="form" id="quickForm" asp-action="DashBoard">
-    <div class="card-body">
-        <div class="table-responsive">
-            <table id="tbloperation" class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>Body</th>
-                        <th>Seq</th>
-                        <th>Place</th>
-                        <th>Area</th>
-                        <th>Conditions</th>
-                        <th>Status</th>
-                        <th>Offline Time</th>
-                        <th>OTD</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        int min = item.total_minutes;
-                        TimeSpan elapsedTime = new TimeSpan(0, min, 0);
-                        int day = elapsedTime.Days;
-                        int hour = elapsedTime.Hours;
-                        int mint = elapsedTime.Minutes;
-                        string minutes = "";
-                        if (item.total_minutes <= 60)
-                        {
-                            minutes = string.Format("{0} minutes", mint);
-                        }
-                        if (item.total_minutes > 60 && item.total_minutes <= 72)
-                        {
-                            minutes = string.Format("{0} hour {1} minutes", hour, mint);
-                        }
-                        if (item.total_minutes > 72)
-                        {
-                            minutes = string.Format("{0} day {1} hours", day, hour);
-                        }
-                        <tr style='background-color: @(hour >= 2 ? "#ffcccb" : "white");'>
-
-                            <td>MKDHH98421</td>
-                            <td>123</td>
-                            <td>@item.location_id</td>
-                            <td><span class="badge badge-primary">@item.location_name</span></td>
-                            <td>---------</td>
-                            <td><span class="badge badge-secondary"><big>WAITING</big></span></td>
-                            <td>@minutes</td>
-                            <td>0 hrs 33 min</td>
+﻿@model DataLib.Entities.API
+    @{
+        ViewData["Title"] = "Operations dashboard";
+        Layout = "~/Views/Shared/adminlayout.cshtml";
+    }
+    <meta http-equiv="refresh" content="120">
+    <div id="buttons" class="text-center m-0"></div>
+    <form role="form" id="quickForm" asp-action="DashBoard">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="tbloperation" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Body</th>
+                            <th>Seq</th>
+                            <th>Place</th>
+                            <th>Area</th>
+                            <th>Conditions</th>
+                            <th>Status</th>
+                            <th>Offline Time</th>
+                            <th>OTD</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var items in Model.Example.ICS_DATA)
+                        {
+                            @foreach (var item in Model.TimeSpentOperations.Where(x => x.asset_id == items.DATA.VIN))
+                            {
+                                int min = item.total_minutes;
+                                TimeSpan elapsedTime = new TimeSpan(0, min, 0);
+                                int day = elapsedTime.Days;
+                                int hour = elapsedTime.Hours;
+                                int mint = elapsedTime.Minutes;
+                                string minutes = "";
+                                if (item.total_minutes <= 60)
+                                {
+                                    minutes = string.Format("{0} minutes", mint);
+                                }
+                                if (item.total_minutes > 60 && item.total_minutes <= 72)
+                                {
+                                    minutes = string.Format("{0} hour {1} minutes", hour, mint);
+                                }
+                                if (item.total_minutes > 72)
+                                {
+                                    minutes = string.Format("{0} day {1} hours", day, hour);
+                                }
+                                <tr style='background-color: @(hour >= 2 ? "#ffcccb" : "white");'>
+
+                                    <td>@items.DATA.BODY_NUM</td>
+                                    <td>@items.DATA.SEQ_NUM</td>
+                                    <td>@item.location_id</td>
+                                    <td><span class="badge badge-primary">@item.location_name</span></td>
+                                    <td>@items.DATA.CONDITIONS</td>
+                                    <td><span class="badge badge-secondary"><big>WAITING</big></span></td>
+                                    <td>@minutes</td>
+                                    <td>@items.DATA.OUTSIDE</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
 
 @section Scripts{
     <script>
@@ -69,13 +72,34 @@
             "processing": true,
             "bProcessing": true,
             "order": [],
-            "pageLength": 25,
+            "pageLength": 10,
             "lengthChange": true,
             "lengthMenu": [
-                [25, 100, 1000, -1],
-                [25, 100, 1000, "All"]
+                [10, 100, 1000, -1],
+                [10, 100, 1000, "All"]
             ],
         });
+        var pageInfo = tbloperation.page.info(),
+
+            // Set the ending interval to the last page
+            endInt = pageInfo.end,
+
+            // Current page
+            currentInt = 0,
+
+            // Start an interval to go to the "next" page every 3 seconds
+            interval = setInterval(function () {
+                // "Next" ...
+                tbloperation.page(currentInt).draw('page');
+
+                // Increment the current page int
+                currentInt++;
+
+                // If were on the last page, reset the currentInt to the first page #
+                if (currentInt === endInt)
+                    currentInt = 0;
+
+            }, 2000); // 2 seconds
         var buttons = new $.fn.dataTable.Buttons(tbloperation, {
             buttons: [{
                 extend: 'excelHtml5',
