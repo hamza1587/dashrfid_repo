@@ -4,7 +4,11 @@
     Layout = "~/Views/Shared/adminlayout.cshtml";
 }
 @{
-    int reserve = Model.TimeSpentOperations.Count();
+    int reserve = 0;
+    @if (Model.TimeSpentOperations.Count() > 0)
+    {
+        reserve = Model.TimeSpentOperations.Count();
+    }
 
     List<DataLib.Entities.TimeSpentOperations> list = Model.TimeSpentOperations.ToList();
     int[] ids = new int[] { 31, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -43,17 +47,23 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="txtLocation" class="control-label">Ubicación</label>
-                        <input type="text" id="txtLocation" class="form-control" />
+                        <label for="txtBodyNum" class="control-label">Número de cuerpo</label>
+                        <input type="text" id="txtBodyNum" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label for="txtAssetId" class="control-label">ID del Activo</label>
-                        <input type="text" id="txtAssetId" class="form-control" />
+                        <label for="txtSeqNum" class="control-label">Secuencia de números</label>
+                        <input type="text" id="txtSeqNum" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txtConditions" class="control-label">Condiciones</label>
+                        <input type="text" id="txtConditions" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txtOutside" class="control-label">Afuera</label>
+                        <input type="text" id="txtOutside" class="form-control" />
                     </div>
                 </div>
                 <div class="modal-footer">
-                    @*<button type="submit" id="save" class="btn btn-primary" onclick="Save()">Save changes</button>
-                        <button class="btn btn-danger" id="close" type="button" data-dismiss="modal">Close</button>*@
                     <span class="btn btn-warning" id="occupied">Occupied</span>
                 </div>
             </div>
@@ -137,71 +147,11 @@
         <!-- /.card -->
     </div>
 </form>
-<style>
-    .ParkingPlace {
-        height: 70px;
-        width: 32px;
-        margin-left: 5px;
-        background-color: #555;
-    }
-
-    .ParkingPlaceOccupie {
-        height: 70px;
-        width: 32px;
-        margin-left: 5px;
-        background-color: #126fa5;
-    }
-
-    .ParkingArea {
-        height: 140px;
-        width: 80px;
-        margin-left: 5px;
-        background-color: #555;
-    }
-
-    .ParkingAreaOccupie {
-        height: 140px;
-        width: 80px;
-        margin-left: 5px;
-        background-color: #3ca0da;
-    }
-
-    .ParkingAreaHorizontal {
-        height: 70px;
-        width: 125px;
-        background-color: #555;
-    }
-
-    .ParkingAreaHorizontalOccupie {
-        height: 70px;
-        width: 125px;
-        background-color: #3ca0da;
-    }
-
-    .ParkingPlaceHorizontal {
-        margin-top: 5px;
-        height: 32px;
-        width: 80px;
-        margin-left: 45px;
-        background-color: #555;
-    }
-
-    .ParkingPlaceHorizontalOccupie {
-        margin-top: 5px;
-        height: 32px;
-        width: 80px;
-        margin-left: 45px;
-        background-color: #126fa5;
-    }
-</style>
 @section Scripts{
     <script>
         $(document).ready(function () {
             if ($("#GetClass-31").attr("data-id") == 31) {
                 $("#GetClass-31").addClass("ParkingAreaOccupie");
-            }
-            if ($("#GetClass-1").attr("data-id") == 1) {
-                $("#GetClass-1").addClass("ParkingPlaceOccupie");
             }
             if ($("#GetClass-2").attr("data-id") == 2) {
                 $("#GetClass-2").addClass("ParkingPlaceOccupie");
@@ -270,25 +220,25 @@
                 $("#GetClass-23").addClass("ParkingPlaceOccupie");
             }
             if ($("#GetClass-24").attr("data-id") == 24) {
-                $("#GetClass-24").addClass("ParkingPlaceOccupie");
+                $("#GetClass-24").addClass("ParkingAreaHorizontalOccupie");
             }
             if ($("#GetClass-25").attr("data-id") == 25) {
-                $("#GetClass-25").addClass("ParkingPlaceOccupie");
+                $("#GetClass-25").addClass("ParkingPlaceHorizontalOccupie25");
             }
             if ($("#GetClass-26").attr("data-id") == 26) {
-                $("#GetClass-26").addClass("ParkingPlaceOccupie");
+                $("#GetClass-26").addClass("ParkingPlaceHorizontalOccupie26");
             }
             if ($("#GetClass-27").attr("data-id") == 27) {
-                $("#GetClass-27").addClass("ParkingPlaceOccupie");
+                $("#GetClass-27").addClass("ParkingPlaceHorizontalOccupie27");
             }
             if ($("#GetClass-28").attr("data-id") == 28) {
-                $("#GetClass-28").addClass("ParkingPlaceOccupie");
+                $("#GetClass-28").addClass("ParkingPlaceHorizontalOccupie28");
             }
             if ($("#GetClass-29").attr("data-id") == 29) {
-                $("#GetClass-29").addClass("ParkingPlaceOccupie");
+                $("#GetClass-29").addClass("ParkingPlaceHorizontalOccupie29");
             }
             if ($("#GetClass-30").attr("data-id") == 30) {
-                $("#GetClass-30").addClass("ParkingPlaceOccupie");
+                $("#GetClass-30").addClass("ParkingPlaceHorizontalOccupie30");
             }
             ///////////////////////////////////////////////////////////////
             if ($("#Booked-2").attr("data-id") == 2) {
@@ -358,53 +308,74 @@
                 $("#Booked-23").addClass("ParkingPlace");
             }
             if ($("#Booked-24").attr("data-id") == 24) {
-                $("#Booked-24").addClass("ParkingPlace");
+                $("#Booked-24").addClass("ParkingAreaHorizontal");
             }
             if ($("#Booked-25").attr("data-id") == 25) {
-                $("#Booked-25").addClass("ParkingPlace");
+                $("#Booked-25").addClass("ParkingPlaceHorizontal25");
+
             }
             if ($("#Booked-26").attr("data-id") == 26) {
-                $("#Booked-26").addClass("ParkingPlace");
+                $("#Booked-26").addClass("ParkingPlaceHorizontal26");
             }
             if ($("#Booked-27").attr("data-id") == 27) {
-                $("#Booked-27").addClass("ParkingPlace");
+                $("#Booked-27").addClass("ParkingPlaceHorizontal27");
             }
             if ($("#Booked-28").attr("data-id") == 28) {
-                $("#Booked-28").addClass("ParkingPlace");
+                $("#Booked-28").addClass("ParkingPlaceHorizontal28");
             }
             if ($("#Booked-29").attr("data-id") == 29) {
-                $("#Booked-29").addClass("ParkingPlace");
+                $("#Booked-29").addClass("ParkingPlaceHorizontal29");
             }
             if ($("#Booked-30").attr("data-id") == 30) {
-                $("#Booked-30").addClass("ParkingPlace");
+                $("#Booked-30").addClass("ParkingPlaceHorizontal30");
             }
         })
         function DataTooltip(AssetID, LocationName) {
-            if (AssetID == undefined) {
-                $('#txtAssetId').val('');
-                $('#txtLocation').val('');
-                $('#save').show('fast');
-                $('#close').show('fast');
-                $('#occupied').hide('fast');
-                $('#AccountModel').modal('show');
-            } else {
-                $('#txtAssetId').val(AssetID);
-                $('#txtLocation').val(LocationName);
-                $('#occupied').show('fast');
-                $('#save').hide('fast');
-                $('#close').hide('fast');
-                $('#AccountModel').modal('show');
-            }
+            $.ajax(
+                {
+                    type: 'POST',
+                    dataType: 'JSON',
+                    url: '@Url.Action("GetDetails", "Home")',
+                    data: { AssetID: AssetID },
+                    success: function (responce) {
+                        if (responce == null) {
+                            $('#txtBodyNum').val('');
+                            $('#txtSeqNum').val('');
+                            $('#txtConditions').val('');
+                            $('#txtOutside').val('');
+                            $('#save').show('fast');
+                            $('#close').show('fast');
+                            $('#occupied').hide('fast');
+                            $('#AccountModel').modal('show');
+                        } else {
+                            $('#txtBodyNum').val(responce.icS_DATA[0].data.bodY_NUM);
+                            $('#txtSeqNum').val(responce.icS_DATA[0].data.seQ_NUM);
+                            $('#txtConditions').val(responce.icS_DATA[0].data.conditions);
+                            $('#txtOutside').val(responce.icS_DATA[0].data.outside);
+                            $('#occupied').show('fast');
+                            $('#save').hide('fast');
+                            $('#close').hide('fast');
+                            $('#AccountModel').modal('show');
+                        }
+                    },
+                    error: function (responce) {
+                        alert("Error: " + responce);
+                    }
+                });
         }
         $(function () {
             var tbllayout = $('#tbllayout').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
                 "responsive": true,
+                "autoWidth": false,
+                "processing": true,
+                "bProcessing": true,
+                "order": [],
+                "pageLength": 10,
+                "lengthChange": true,
+                "lengthMenu": [
+                    [10, 100, 1000, -1],
+                    [10, 100, 1000, "All"]
+                ],
             });
             var pageInfo = tbllayout.page.info(),
 

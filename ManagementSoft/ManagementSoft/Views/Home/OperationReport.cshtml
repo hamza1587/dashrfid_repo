@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataLib.Entities.TimeSpent>
+﻿@model DataLib.Entities.API
 @{
     ViewData["Title"] = "Operations Report";
     Layout = "~/Views/Shared/adminlayout.cshtml";
@@ -43,36 +43,84 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model)
+                            @try
                             {
-                                int min = item.minutes_from_now;
-                                TimeSpan elapsedTime = new TimeSpan(0, min, 0);
-                                int day = elapsedTime.Days;
-                                int hour = elapsedTime.Hours;
-                                int mint = elapsedTime.Minutes;
-                                string minutes = "";
-                                if (item.minutes_from_now <= 60)
+                                @foreach (var item in Model.TimeSpent)
                                 {
-                                    minutes = string.Format("{0} minutes", mint);
-                                }
-                                if (item.minutes_from_now > 60 && item.minutes_from_now <= 72)
-                                {
-                                    minutes = string.Format("{0} hour {1} minutes", hour, mint);
-                                }
-                                if (item.minutes_from_now > 72)
-                                {
-                                    minutes = string.Format("{0} day {1} hours", day, hour);
-                                }
-                                <tr style='background-color: @(hour >= 2 ? "#ffcccb" : "white");'>
+                                    @foreach (var items in Model.Example.ICS_DATA)
+                                    {
+                                        int min = item.minutes_from_now;
+                                        TimeSpan elapsedTime = new TimeSpan(0, min, 0);
+                                        int day = elapsedTime.Days;
+                                        int hour = elapsedTime.Hours;
+                                        int mint = elapsedTime.Minutes;
+                                        string minutes = "";
+                                        if (item.minutes_from_now <= 60)
+                                        {
+                                            minutes = string.Format("{0} minutes", mint);
+                                        }
+                                        if (item.minutes_from_now > 60 && item.minutes_from_now <= 72)
+                                        {
+                                            minutes = string.Format("{0} hour {1} minutes", hour, mint);
+                                        }
+                                        if (item.minutes_from_now > 72)
+                                        {
+                                            minutes = string.Format("{0} day {1} hours", day, hour);
+                                        }
+                                        var body_num = "";
+                                        var seq_num = "";
+                                        var conditions = "";
+                                        string outside = "";
+                                        @if (items.DATA.BODY_NUM != "")
+                                        {
+                                            body_num = items.DATA.BODY_NUM;
+                                        }
+                                        else
+                                        {
+                                            body_num = "-------------------";
+                                        }
+                                        @if (items.DATA.SEQ_NUM != "")
+                                        {
+                                            seq_num = items.DATA.SEQ_NUM;
+                                        }
+                                        else
+                                        {
+                                            seq_num = "-------------------";
+                                        }
+                                        @if (items.DATA.CONDITIONS != "")
+                                        {
+                                            conditions = items.DATA.CONDITIONS;
+                                        }
+                                        else
+                                        {
+                                            conditions = "-------------------";
+                                        }
+                                        @if (items.DATA.OUTSIDE != null)
+                                        {
+                                            outside = items.DATA.OUTSIDE.ToString();
+                                        }
+                                        else
+                                        {
+                                            outside = "-------------------";
+                                        }
+                                        <tr style='background-color: @(hour >= 2 ? "#ffcccb" : "white");'>
 
-                                    <td>MKDHH98421</td>
-                                    <td>123</td>
-                                    <td>@item.location_id</td>
-                                    <td><span class="badge badge-primary">@item.location_name</span></td>
-                                    <td>---------</td>
-                                    <td><span class="badge badge-secondary"><big>WAITING</big></span></td>
-                                    <td>@minutes</td>
-                                    <td>0 hrs 33 min</td>
+                                            <td>@items.DATA.BODY_NUM</td>
+                                            <td>@items.DATA.SEQ_NUM</td>
+                                            <td>@item.location_id</td>
+                                            <td><span class="badge badge-primary">@item.location_name</span></td>
+                                            <td>@items.DATA.CONDITIONS</td>
+                                            <td><span class="badge badge-secondary"><big>WAITING</big></span></td>
+                                            <td>@minutes</td>
+                                            <td>@items.DATA.OUTSIDE</td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                            catch(Exception)
+                            {
+                                <tr>
+                                    <td colspan="8">No Data Found</td>
                                 </tr>
                             }
                         </tbody>
@@ -122,11 +170,11 @@
             "processing": true,
             "bProcessing": true,
             "order": [],
-            "pageLength": 25,
+            "pageLength": 10,
             "lengthChange": true,
             "lengthMenu": [
-                [25, 100, 1000, -1],
-                [25, 100, 1000, "All"]
+                [10, 100, 1000, -1],
+                [10, 100, 1000, "All"]
             ],
         });
         var buttons = new $.fn.dataTable.Buttons(tbloperation, {

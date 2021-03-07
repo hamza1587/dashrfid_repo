@@ -2908,6 +2908,5 @@ C:\Users\hamza\Desktop\dashrfid_repo\dashrfid_repo\ManagementSoft\ManagementSoft
 C:\Users\hamza\Desktop\dashrfid_repo\dashrfid_repo\ManagementSoft\ManagementSoft\obj\Debug\netcoreapp3.1\DashRFID.dll
 C:\Users\hamza\Desktop\dashrfid_repo\dashrfid_repo\ManagementSoft\ManagementSoft\obj\Debug\netcoreapp3.1\DashRFID.pdb
 C:\Users\hamza\Desktop\dashrfid_repo\dashrfid_repo\ManagementSoft\ManagementSoft\obj\Debug\netcoreapp3.1\ManagementSoft.genruntimeconfig.cache
-C:\Users\hamza\Desktop\dashrfid_repo\dashrfid_repo\ManagementSoft\ManagementSoft\obj\Debug\netcoreapp3.1\Razor\Views\Home\API.cshtml.g.cs
 C:\Users\hamza\Desktop\dashrfid_repo\dashrfid_repo\ManagementSoft\ManagementSoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
 C:\Users\hamza\Desktop\dashrfid_repo\dashrfid_repo\ManagementSoft\ManagementSoft\bin\Debug\netcoreapp3.1\Nancy.dll

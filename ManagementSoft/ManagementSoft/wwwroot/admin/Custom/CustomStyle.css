@@ -74,34 +74,42 @@
     margin-left: 5px;
     background-color: #555;
 }
+
 .ParkingPlaceOccupie {
     height: 70px;
-    width:32px;
+    width: 32px;
     margin-left: 5px;
     background-color: #126fa5;
 }
+
 .ParkingArea {
     height: 140px;
     width: 110px;
     margin-left: 5px;
     background-color: #555;
 }
+
 .ParkingAreaOccupie {
     height: 140px;
     width: 110px;
     margin-left: 5px;
     background-color: #3ca0da;
 }
+
 .ParkingAreaHorizontal {
     height: 70px;
     width: 125px;
     background-color: #555;
+    margin-left: 5px
 }
+
 .ParkingAreaHorizontalOccupie {
     height: 70px;
     width: 125px;
+    margin-left: 5px;
     background-color: #3ca0da;
 }
+
 .ParkingPlaceHorizontal {
     margin-top: 5px;
     height: 32px;
@@ -109,11 +117,108 @@
     margin-left: 45px;
     background-color: #555;
 }
+
 .ParkingPlaceHorizontalOccupie {
     margin-top: 5px;
     height: 32px;
     width: 80px;
     margin-left: 45px;
+    background-color: #126fa5;
+}
+
+.ParkingPlaceHorizontal25 {
+    margin-top: 73px;
+    height: 32px;
+    width: 80px;
+    margin-left: -80px;
+    background-color: #555;
+}
+
+.ParkingPlaceHorizontalOccupie25 {
+    margin-top: 73px;
+    height: 32px;
+    width: 80px;
+    margin-left: -80px;
+    background-color: #126fa5;
+}
+
+.ParkingPlaceHorizontal26 {
+    margin-top: 110px;
+    height: 32px;
+    width: 80px;
+    margin-left: -80px;
+    background-color: #555;
+}
+
+.ParkingPlaceHorizontalOccupie26 {
+    margin-top: 110px;
+    height: 32px;
+    width: 80px;
+    margin-left: -80px;
+    background-color: #126fa5;
+}
+
+.ParkingPlaceHorizontal27 {
+    margin-top: 147px;
+    height: 32px;
+    width: 80px;
+    margin-left: -80px;
+    background-color: #555;
+}
+
+.ParkingPlaceHorizontalOccupie27 {
+    margin-top: 147px;
+    height: 32px;
+    width: 80px;
+    margin-left: -80px;
+    background-color: #126fa5;
+}
+
+.ParkingPlaceHorizontal28 {
+    margin-top: 183px;
+    height: 32px;
+    width: 80px;
+    margin-left: -80px;
+    background-color: #555;
+}
+
+.ParkingPlaceHorizontalOccupie28 {
+    margin-top: 219px;
+    height: 32px;
+    width: 80px;
+    margin-left: -80px;
+    background-color: #126fa5;
+}
+
+.ParkingPlaceHorizontal29 {
+    margin-top: 220px;
+    height: 32px;
+    width: 80px;
+    margin-left: -80px;
+    background-color: #555;
+}
+
+.ParkingPlaceHorizontalOccupie29 {
+    margin-top: 220px;
+    height: 32px;
+    width: 80px;
+    margin-left: -80px;
+    background-color: #126fa5;
+}
+
+.ParkingPlaceHorizontal30 {
+    margin-top: 257px;
+    height: 32px;
+    width: 80px;
+    margin-left: -80px;
+    background-color: #555;
+}
+
+.ParkingPlaceHorizontalOccupie30 {
+    margin-top: 257px;
+    height: 32px;
+    width: 80px;
+    margin-left: -80px;
     background-color: #126fa5;
 }
 

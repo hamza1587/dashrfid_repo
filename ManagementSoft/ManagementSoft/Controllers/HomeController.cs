@@ -47,7 +47,30 @@ namespace ECommerceCore.Controllers
             _hostingEnvironment = en;
             _context = context;
         }
-
+        public JsonResult GetDetails(string AssetID)
+        {
+            if(AssetID != null)
+            {
+                Example result = new Example();
+                var data = "";
+                using (HttpClient client = new HttpClient())
+                {
+                    using (HttpResponseMessage Response = client.GetAsync("https://celayawebservice.azurewebsites.net/WS1/" + AssetID).Result)
+                    {
+                        if (Response.IsSuccessStatusCode)
+                        {
+                            data = Response.Content.ReadAsStringAsync().Result;
+                            result = JsonConvert.DeserializeObject<Example>(data);
+                        }
+                    }
+                }
+                return Json(result);
+            }
+            else
+            {
+                return Json(null);
+            }
+        }
         [HttpGet]
         public async Task<IActionResult> DashBoard()
         {
@@ -88,7 +111,7 @@ namespace ECommerceCore.Controllers
             }
         }
         [HttpGet]
-        public IActionResult OperationReport()
+        public async Task<IActionResult> OperationReport()
         {
             if (!CheckUserexists())
             {
@@ -96,13 +119,38 @@ namespace ECommerceCore.Controllers
             }
             else
             {
-                CurrentUser(GetLoginUserId());
-                var data = db.Timespent.Get().Result;
-                return View(data);
+                try
+                {
+                    CurrentUser(GetLoginUserId());
+                    var times = db.Timespent.Get().Result;
+                    var viewModel = new API();
+                    foreach (var items in times)
+                    {
+                        var asset_id = items.asset_id;
+                        using (HttpClient client = new HttpClient())
+                        {
+                            using (HttpResponseMessage Response = await client.GetAsync("https://celayawebservice.azurewebsites.net/WS1/" + asset_id))
+                            {
+                                if (Response.IsSuccessStatusCode)
+                                {
+                                    var data = Response.Content.ReadAsStringAsync().Result;
+                                    var result = JsonConvert.DeserializeObject<Example>(data);
+                                    viewModel.Example = result;
+                                    viewModel.TimeSpent = db.Timespent.Get().Result;
+                                }
+                            }
+                        }
+                    }
+                    return View(viewModel);
+                }
+                catch (Exception)
+                {
+                    return View();
+                }
             }
         }
         [HttpPost]
-        public IActionResult OperationReport(DateTime FromDate, DateTime ToDate)
+        public async Task<IActionResult> OperationReport(DateTime FromDate, DateTime ToDate)
         {
             if (!CheckUserexists())
             {
@@ -110,9 +158,34 @@ namespace ECommerceCore.Controllers
             }
             else
             {
-                CurrentUser(GetLoginUserId());
-                var data = db.Timespent.GetDateData(FromDate, ToDate).Result;
-                return View(data);
+                try
+                {
+                    CurrentUser(GetLoginUserId());
+                    var times = db.Timespent.Get().Result;
+                    var viewModel = new API();
+                    foreach (var items in times)
+                    {
+                        var asset_id = items.asset_id;
+                        using (HttpClient client = new HttpClient())
+                        {
+                            using (HttpResponseMessage Response = await client.GetAsync("https://celayawebservice.azurewebsites.net/WS1/" + asset_id))
+                            {
+                                if (Response.IsSuccessStatusCode)
+                                {
+                                    var data = Response.Content.ReadAsStringAsync().Result;
+                                    var result = JsonConvert.DeserializeObject<Example>(data);
+                                    viewModel.Example = result;
+                                    viewModel.TimeSpent = db.Timespent.GetDateData(FromDate, ToDate).Result;
+                                }
+                            }
+                        }
+                    }
+                    return View(viewModel);
+                }
+                catch (Exception)
+                {
+                    return View();
+                }
             }
         }
         [HttpGet]
